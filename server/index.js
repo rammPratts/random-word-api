@@ -1,12 +1,12 @@
 const express = require("express")
 
+const words = require("./words")
+
 const app = express()
 const port = process.env.PORT || 3000
 
 app.get("/", (req, res) =>{
-    res.send({
-        hola: "hola"
-    })
+    res.send(words)
 })
 
 app.listen(port, () => {
