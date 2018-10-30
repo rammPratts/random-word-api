@@ -1,12 +1,14 @@
 const express = require("express")
 
-const words = require("./words")
+const {getRandomWord} = require("./words")
 
 const app = express()
 const port = process.env.PORT || 3000
 
 app.get("/", (req, res) =>{
-    res.send(words)
+    const wordCount = parseInt(req.query.wordCount)
+    console.log(typeof wordCount, wordCount)
+    res.send(getRandomWord(wordCount))
 })
 
 app.listen(port, () => {

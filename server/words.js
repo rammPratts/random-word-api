@@ -39,5 +39,4 @@ const getRandomWord = (wordCount) => {
 
 }
 
-console.log(getRandomWord())
-module.exports = words
+module.exports = {getRandomWord}
