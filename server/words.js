@@ -1,22 +1,11 @@
-const words = [{
-    word: "hello",
-    wordCount: 1
-},{
-    word: "salchipapa",
-    wordCount: 1
-},{
-    word: "rio negro",
-    wordCount: 2
-}, {
-    word: "ostia tio",
-    wordCount: 2
-}, {
-    word: "de meno el fri",
-    wordCount: 4
-},{
-    word: "el agus se la come",
-    wordCount: 5
-}]
+const fs = require("fs")
+
+const getWords = () => {
+    const data = fs.readFileSync("./server/words-data.json")
+    return JSON.parse(data)
+}
+
+const words = getWords()
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;

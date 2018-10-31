@@ -7,8 +7,8 @@ const port = process.env.PORT || 3000
 
 app.get("/", (req, res) =>{
     const wordCount = parseInt(req.query.wordCount)
-    console.log(typeof wordCount, wordCount)
-    res.send(getRandomWord(wordCount))
+    const word = getRandomWord(wordCount) 
+    word ? res.send(word) : res.send({error: "invalid word count"})
 })
 
 app.listen(port, () => {
